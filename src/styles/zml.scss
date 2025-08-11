@@ -1,0 +1,90 @@
+// flex布局
+.z-flex{ display: flex; }
+.z-flex-align-center{ display: flex;align-items: center; }
+.z-flex-align-start{ display: flex;align-items: flex-start; }
+.z-flex-align-end{ display: flex;align-items: flex-end; }
+.z-flex-justify-center{ display: flex;justify-content: center; }
+.z-flex-justify-between{ display: flex;justify-content: space-between; }
+.z-flex-justify-start{ display: flex;justify-content: flex-start; }
+.z-flex-justify-end{ display: flex;justify-content: flex-end; }
+.z-flex-wrap{ display: flex;flex-wrap: wrap; }
+.z-flex-nowrap{ display: flex;flex-wrap: nowrap; }
+.z-flex-column{ display: flex;flex-direction: column; }
+.z-flex-column-center{ display: flex;flex-direction: column;align-items: center;justify-content: center; }
+.z-flex-center{ display: flex;align-items: center;justify-content: center; }
+.z-flex-1{ flex: 1; }
+
+// 多余文本省略号显示
+.z-line-1 { overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+.z-line-2, .z-line-3, .z-line-4, .z-line-5 { overflow: hidden;word-break: break-all;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical; }
+.z-line-2 { -webkit-line-clamp: 2; }
+.z-line-3 { -webkit-line-clamp: 3; }
+.z-line-4 { -webkit-line-clamp: 4; }
+.z-line-5 { -webkit-line-clamp: 5; }
+
+// hidden
+.z-hidden{ overflow: hidden; }
+
+// font text
+.z-t-bold{font-weight: bold;}
+.z-t-l{text-align: left;}
+.z-t-r{text-align: right;}
+.z-t-c{text-align: center;}
+
+// 定义定位元素
+.z-relative, .z-rela { position: relative; }
+.z-absolute, .z-abso { position: absolute; }
+
+// 定义字体单位
+@for $i from 12 through 100 {
+	.z-font-#{$i} { font-size: $i + px; }
+}
+
+// 定义内外边距，历遍1-100
+@for $i from 1 through 100 {
+	.z-margin-#{$i}, .z-m-#{$i} { margin: $i + px!important; }
+	.z-padding-#{$i}, .z-p-#{$i} { padding: $i + px!important; }
+	@each $short, $long in l left, t top, r right, b bottom {
+		// 简化版，结果如：z-m-l-xx
+		.z-m-#{$short}-#{$i} { margin-#{$long}: $i + px!important; }
+		.z-p-#{$short}-#{$i} { padding-#{$long}: $i + px!important; }
+
+		// 完整版，结果如：z-margin-left-xx
+		.z-margin-#{$long}-#{$i} { margin-#{$long}: $i + px!important; }
+		.z-padding-#{$long}-#{$i} { padding-#{$long}: $i + px!important; }
+	}
+}
+
+// 定义圆角
+// 定义字体单位
+@for $i from 2 through 100 {
+	.z-br-#{$i} { border-radius: $i + px; }
+}
+
+// border
+.z-border, .z-border-bottom, .z-border-left, .z-border-right, .z-border-top, .z-border-top-bottom { position: relative }
+.z-border-bottom:after, .z-border-left:after, .z-border-right:after, .z-border-top-bottom:after, .z-border-top:after, .z-border:after {
+	content: ' ';position: absolute;left: 0;top: 0;pointer-events: none;box-sizing: border-box;-webkit-transform-origin: 0 0;transform-origin: 0 0;
+	width: 199.8%;height: 199.7%;transform: scale(0.5, 0.5);border: 0 solid rgba(0,0,0,.2);z-index: 2;
+}
+.z-border-top:after { border-top-width: 1px }
+.z-border-left:after { border-left-width: 1px }
+.z-border-right:after { border-right-width: 1px }
+.z-border-bottom:after { border-bottom-width: 1px }
+.z-border-top-bottom:after { border-width: 1px 0 }
+.z-border:after { border-width: 1px }
+
+// color
+.zFFFFFF{color: #ffffff;}
+.z000000{color: #000000;}
+.z111111{color: #111111;}
+.z333333{color: #333333;}
+.z666666{color: #666666;}
+.z999999{color: #999999;}
+.zAAAAAA{color: #AAAAAA;}
+.zCCCCCC{color: #CCCCCC;}
+.z-c-primary{color: #409EFF;}
+.z-c-success{color: #67C23A;}
+.z-c-warning{color: #E6A23C;}
+.z-c-danger{color: #F56C6C;}
+.z-c-info{color: #409EFF;}

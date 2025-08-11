@@ -1,50 +1,26 @@
 {
-  "name": "awanbao-public-account-master",
-  "version": "1.0.0",
+  "name": "zml-template-h5",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "serve:develop": "vue-cli-service serve --mode=develop",
-    "serve:testing": "vue-cli-service serve --mode=testing",
-    "serve:release": "vue-cli-service serve --mode=release",
-    "serve:production": "vue-cli-service serve --mode=production",
-    "build:develop": "vue-cli-service build --mode=develop",
-    "build:testing": "vue-cli-service build --mode=testing",
-    "build:release": "vue-cli-service build --mode=release",
-    "build:production": "vue-cli-service build --mode=production",
-    "build:report": "vue-cli-service build --mode=develop --report",
-    "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\""
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "1.2.0",
-    "compression-webpack-plugin": "^5.0.1",
-    "core-js": "^3.6.5",
-    "jsencrypt": "^3.3.1",
-    "lib-flexible": "^0.3.2",
-    "postcss-plugin-px2rem": "^0.8.1",
-    "sha1": "^1.1.1",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "vant": "^3.4.9",
-    "vue": "^3.2.38",
-    "vue-router": "^4.1.5",
-    "weixin-js-sdk": "^1.6.0"
+    "axios": "^0.26.0",
+    "vant": "^3.4.5",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.17",
-    "@vue/cli-plugin-eslint": "~4.5.17",
-    "@vue/cli-plugin-router": "~4.5.17",
-    "@vue/cli-plugin-vuex": "~4.5.17",
-    "@vue/cli-service": "~4.5.17",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "babel-plugin-import": "^1.13.5",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^8.7.1",
-    "husky": "^8.0.0",
-    "prettier": "^2.2.1",
-    "sass": "^1.52.1",
-    "sass-loader": "^8.0.2"
+    "@types/node": "^17.0.21",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "sass": "^1.49.7",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
   }
 }
