@@ -1,0 +1,59 @@
+@charset 'utf-8';
+
+//  flex布局
+@mixin flex($alignItems: center, $justifyContent: center, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
+
+// 宽高
+@mixin wh($width, $height : $width) {
+  width: $width;
+  height: $height;
+}
+
+//显示多行，省略号
+@mixin ellipsis($row: 1) {
+  -webkit-line-clamp: $row;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+//单行，省略号
+@mixin uniline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin bgUrl($name, $w, $h: $w, $allUrl: 0){
+width: $w;
+height: $h;
+
+@if ($allUrl==1) {
+  background: url($name) no-repeat;
+}
+
+  @else {
+    background: url("~@/assets/img/"+ $name) no-repeat;
+  }
+
+background-size: $w $h;
+background-repeat: no-repeat;
+}
+
+
+// 雪碧图
+@mixin bgSprite($name, $w, $h, $size) {
+  width: $w;
+  height: $h;
+  background: url("~@/assets/img/" + $name) no-repeat;
+  background-size: $w $size;
+}
+
+@mixin bgUrlName($name) {
+  background: url("~@/assets/img/"+ $name) no-repeat;
+}
