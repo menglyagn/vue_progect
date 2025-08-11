@@ -9,7 +9,7 @@
     </div>
     <div class="zml-tabbar" v-if="route.meta.show">
         <van-tabbar route placeholder inactive-color="#ccc" active-color="#41B883">
-            <van-tabbar-item icon="wap-home" to="/home">首页</van-tabbar-item>
+            <van-tabbar-item icon="wap-home" to="/home">首页111</van-tabbar-item>
             <van-tabbar-item icon="manager" to="/my">我的</van-tabbar-item>
         </van-tabbar>
     </div>
