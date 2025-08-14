@@ -1,19 +1,47 @@
 <template>
-    <div class="details">
-        <van-nav-bar title="Details" left-text="返回" left-arrow @click-left="router.back()" />
-        <div class="z-flex-center z-p-50 z-font-40">this is details page.</div>
-    </div>
+  <div class="app">
+    <Typewriter
+      text="时过如驹，忽然而已。仿佛昨日还在我们相遇的季节，可是今朝已闻寒蝉凄切。岁月是最狡黠的小偷，当我还在回忆往事，它早已盗走了整个春天；当我想你睫毛上的阳光时，它又悄悄卷走了盛夏的光阴，来到了立秋。
+初春是我们相遇的季节。当时的风还裹挟着冬末的凛冽，但是阳光已有了温柔的重量。在这万物复苏的季节我们如期而遇，你就像春天特意送给我的礼物，美丽而又迷人，让我相信枯枝终会抽芽，冰封的河流终将奔涌。  你的到来像一缕穿破云层的阳光，不动声色地融化了积雪下蛰伏的生机。我看见希望在你眼眸里生长，像初生的嫩芽试探着触碰这个世界。你微笑时，仿佛有千万朵花在我心底次第绽放，那些沉睡的、蜷缩的、不敢声张的渴望，都在你目光的抚慰下舒展枝叶。 我们也在彼此的吸引中慢慢靠近、拥抱、缠绵，心灵和身体的触碰让我们走的越来越近。整个春天我们在公园里，小河边，还有我们相遇的地方 尽情的拥抱亲吻 ，牵着彼此的手在一起逛街散步，一起吃着街边的美食，享受着彼此的快乐和温暖。（调皮一下 我很卖力的 哈哈）
+后来夏天来了，它带着火热的温度和你的人也回来了。我们的见面就不再方便 ，我们的争吵也变得频繁。但是我们的心还是会交织在一起，我沉醉地享受着你的温柔，以我火热的爱意回应着你，像七月的骄阳炙烤大地般毫无保留。那时的我们，像两株在烈日下肆意生长的植物，根须在地下纠缠，枝叶在空中交叠，分不清是谁在汲取谁的生命。
+在你离开之后，因为我们联系方式变了，不能像以前一样，你也开始慢慢想要离开我, 我们最近的这段时间总是在这个话题上拉扯着，伤害着 ，我不舍得你离开我，也不想你离开我。你的温柔，你的美丽，你的可爱，已经停留在我心里 我不想忘，也不会忘。
+如果时间可以定格，我希望它永远停留在那段时间。停留在那段爱意浓烈的时光。但是时间不会为谁停留，它裹挟着落叶往前奔涌。我不愿在这个秋天，这个冬天没有你。不愿看枯黄的梧桐叶独自飘零，不愿听冷雨敲窗时只有寂寞回应。我想和你一起踩碎满地金黄的银杏，听落叶在脚下发出清脆的声响；想和你围同一条围巾，在呵出的白气里相视而笑。当北风呼啸而过，我们要把彼此的手揣进对方口袋，让体温在紧密相贴的指缝间流转。
+在这个秋意渐浓的时节，请允许我紧紧握住你的手，让我们共同面对即将到来的风霜。因为有你相伴的冬天，再冷也温暖。"
+      :speed="50"
+      @complete="handleComplete"
+    />
+    <div class="next" @click="handleClick">下一页</div>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted } from 'vue';
+<script setup lang="ts">
+import Typewriter from '@/components/Typewriter.vue';
 import { useRouter } from 'vue-router'
 const router = useRouter()
-onMounted(() => {
-    console.log("我是details页面，我没有缓存")
-})
+const handleClick = () => {
+    router.push({
+        path: '/my'
+    })
+}
+const handleComplete = () => {
+  console.log('打字动画完成');
+};
 </script>
-
-<style lang="scss" scoped>
-    
+<style scoped>
+.app {
+  position: relative;
+}
+.next{
+    position: absolute;
+    bottom: 20px;
+    right: 38%;
+    width: 150px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 8px;
+    background: #eb8d8d;
+    font-size: 20px;
+}
 </style>

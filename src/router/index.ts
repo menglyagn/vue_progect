@@ -32,14 +32,31 @@ const Router = createRouter({
                 show: true
             }
         },{
-            path: '/details/:id',
+            path: '/details',
             name: 'Details',
             component: () => import('../pages/details/index.vue'),
             meta: {
+                keepAlive: true,
+                show: true
+            }
+        },{
+            path: '/page1',
+            name: 'Page1',
+            component: () => import('../pages/page1.vue'),
+            meta: {
                 keepAlive: false,
-                show: false
+                show: true
             }
         },
+        ,{
+            path: '/new',
+            name: 'new',
+            component: () => import('../pages/home/new.vue'),
+            meta: {
+                keepAlive: false,
+                show: true
+            }
+        },    
     ]
 })
 

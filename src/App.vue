@@ -1,18 +1,13 @@
 <template>
     <div class="container">
-        <router-view v-slot="{ Component }">
-            <keep-alive>
-                <component :is="Component" :key="route.name" v-if="route.meta.keepAlive"></component>
-            </keep-alive>
-            <component :is="Component" :key="route.name" v-if="!route.meta.keepAlive"></component>
-        </router-view>
+        <router-view />
     </div>
-    <div class="zml-tabbar" v-if="route.meta.show">
+    <!-- <div class="zml-tabbar" v-if="route.meta.show">
         <van-tabbar route placeholder inactive-color="#ccc" active-color="#41B883">
             <van-tabbar-item icon="wap-home" to="/home">首页111</van-tabbar-item>
             <van-tabbar-item icon="manager" to="/my">我的</van-tabbar-item>
         </van-tabbar>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts" setup>
@@ -31,5 +26,9 @@ div,p,span,a,button,input,ul,li,h1,h2,h3,h4,h5,h6{
     padding: 0;
     outline: none;
     box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
 }
 </style>

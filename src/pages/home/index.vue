@@ -1,23 +1,48 @@
 <template>
-    <div class="home">
-        <div class="z-flex-center">
-            <img src="../../assets/logo.png" alt="">
-        </div>
-        <h1 class="z-t-c">This is home page.</h1>
-        <h3 class="z-t-c">
-            <router-link to="/details/1">去详情页</router-link>
-        </h3>
+    <div class="page1">
+        <iframe src="http://7.att2.top/891/#1755157071564" frameborder="0" style="width: 100%; height: 100%; display: block;"></iframe>
+        <div class="zhezhao"></div>
+        <div class="next" @click="handleClick">不想玩？进入正题</div>
     </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted } from 'vue';
 
-onMounted(() => {
-    console.log("我是home页面,我做了缓存")
-})
-</script> 
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const handleClick = () => {
+    router.push({
+        path: '/details'
+    })
+}
+</script>
+<style scoped>
+.page1 {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.zhezhao{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 150px;
+    height: 30%;
+    background-color: #fff;
 
-<style scoped lang="scss">
-
+}
+.next{
+    position: absolute;
+    bottom: 20px;
+    right: 38%;
+    width: 200px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 8px;
+    background: #eb8d8d;
+    font-size: 20px;
+}
 </style>
