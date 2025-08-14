@@ -1,63 +1,44 @@
-/**
- * 配置说明:
- *  meta: 
- *      keepAlive: 是否需要缓存当前路由组件  true: 缓存  false: 不缓存
- *      show: 是否需要显示底部tabbar    true: 显示  false: 不显示
- * 
- * 
-*/
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-import {  createRouter, createWebHashHistory } from 'vue-router'
+// 明确定义路由记录数组类型为 RouteRecordRaw[]
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/pages/home/index.vue'),
+    meta: {
+      keepAlive: true,
+      show: true
+    }
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: () => import('@/pages/details/index.vue'),
+    meta: {
+      keepAlive: false,
+      show: false
+    }
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: () => import('@/pages/my/index.vue'),
+    meta: {
+      keepAlive: false,
+      show: false
+    }
+  },
+  // 确保没有额外的逗号或 undefined 值
+];
 
-const Router = createRouter({
-    history: createWebHashHistory(),
-    routes: [
-        {
-            path: '/',
-            redirect: '/home'
-        },{
-            path: '/home',
-            name: 'Home',
-            component: () => import('../pages/home/index.vue'),
-            meta: {
-                keepAlive: true,
-                show: true
-            }
-        },{
-            path: '/my',
-            name: 'My',
-            component: () => import('../pages/my/index.vue'),
-            meta: {
-                keepAlive: true,
-                show: true
-            }
-        },{
-            path: '/details',
-            name: 'Details',
-            component: () => import('../pages/details/index.vue'),
-            meta: {
-                keepAlive: true,
-                show: true
-            }
-        },{
-            path: '/page1',
-            name: 'Page1',
-            component: () => import('../pages/page1.vue'),
-            meta: {
-                keepAlive: false,
-                show: true
-            }
-        },
-        ,{
-            path: '/new',
-            name: 'new',
-            component: () => import('../pages/home/new.vue'),
-            meta: {
-                keepAlive: false,
-                show: true
-            }
-        },    
-    ]
-})
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
 
-export default Router
+export default router;
