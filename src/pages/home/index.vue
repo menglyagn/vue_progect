@@ -1,6 +1,6 @@
 <template>
     <div class="page1">
-        <iframe :src="iframeUrl" frameborder="0"  style="width: 100%; height: 100%; display: block;"></iframe>
+        <iframe :src="targetUrl" frameborder="0"  style="width: 100%; height: 100%; display: block;"></iframe>
         <div class="zhezhao"></div>
         <div class="next" @click="handleClick">不想玩？进入正题</div>
     </div>
@@ -19,7 +19,7 @@ const handleClick = () => {
     })
 }
 
-const targetUrl = "http://7.att2.top/891/#1755217753046";
+const targetUrl = "http://accct.top/891";
 const iframeUrl = computed(() => 
   `/.netlify/functions/proxy?url=${encodeURIComponent(targetUrl)}`
 );
