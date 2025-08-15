@@ -15,17 +15,19 @@ export default {
             // 在这里初始化 Three.js 场景
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
+            // 调整相机位置，使其更适合 H5
+            camera.position.z = 8;
 
             const renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             sceneContainer.value.appendChild(renderer.domElement);
 
-            // 创建爱心形状
+            // 创建爱心形状 - 减小尺寸以适配 H5
             const heartShape = new THREE.Shape();
             heartShape.moveTo(0, 0);
-            heartShape.bezierCurveTo(2, -3, 3, -4, 0, -6);
-            heartShape.bezierCurveTo(-3, -4, -2, -3, 0, 0);
+            // 调整 bezierCurveTo 参数减小心形大小
+            heartShape.bezierCurveTo(1.5, -2.25, 2.25, -3, 0, -4.5);
+            heartShape.bezierCurveTo(-2.25, -3, -1.5, -2.25, 0, 0);
 
             // 创建爱心几何体
             const geometry = new THREE.ShapeGeometry(heartShape);
@@ -82,24 +84,32 @@ export default {
 
 
             const loader = new FontLoader();
-            loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-                const textGeometry = new TextGeometry('情人节快乐，我爱你！', {
-                    font: font,
-                    size: 0.5,
-                    height: 0.1
-                });
-                const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-                textMesh.position.set(-2, 2, 0);
-                scene.add(textMesh);
+            loader.load('/helvetiker_regular.typeface.json', function (font) {
+                // 第一行文字
+                // const textGeometry1 = new TextGeometry('情人节快乐，', {
+                //     font: font,
+                //     size: 0.3,
+                //     height: 0.07
+                // });
+                
+                // const textMaterial1 = new THREE.MeshBasicMaterial({ color: 0xffffff });
+                // const textMesh1 = new THREE.Mesh(textGeometry1, textMaterial1);
+                // textMesh1.position.set(-1.0, 1.8, 0.2);
+                // scene.add(textMesh1);
+                
+                // 第二行文字
+                // const textGeometry2 = new TextGeometry('我爱你！', {
+                //     font: font,
+                //     size: 0.3,
+                //     height: 0.7
+                // });
+                
+                // const textMaterial2 = new THREE.MeshBasicMaterial({ color: 0xffffff });
+                // const textMesh2 = new THREE.Mesh(textGeometry2, textMaterial2);
+                // textMesh2.position.set(-0.6, 1.4, 0.3);
+                // scene.add(textMesh2);
             });
-            const handleResize = () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            };
-
-            window.addEventListener('resize', handleResize);
+            
         });
 
         return {

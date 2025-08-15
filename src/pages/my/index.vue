@@ -1,7 +1,7 @@
 <template>
     <div class="my">
         <ThreeScene />
-        <div @click="toNext">下一页</div>
+        <div class="btn1" @click="toNext">下一页</div>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ const router = useRouter()
 
 const toNext = () => {
     router.push({
-        path: '/details'
+        path: '/page1'
     })
 }
 
@@ -23,5 +23,15 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-
+.my {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    .btn1 {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 </style>

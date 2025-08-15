@@ -30,6 +30,15 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/page1',
+    name: 'page1',
+    component: () => import('@/pages/page1.vue'),
+    meta: {
+      keepAlive: false,
+      show: false
+    }
+  },
+  {
     path: '/:pathMatch(.*)',
     redirect: (to) => {
       // 如果是 Netlify 函数路径，直接返回该路径

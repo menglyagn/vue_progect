@@ -30,4 +30,26 @@ div,p,span,a,button,input,ul,li,h1,h2,h3,h4,h5,h6{
     height: 100vh;
     width: 100vw;
 }
+.btn1{
+    font-size: 4vw;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    background-color: #d4818e;
+    color: white;
+}
+.btn2{
+    font-size: 4vw;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    background-color: #6784b1;
+    color: white;
+}
 </style>
