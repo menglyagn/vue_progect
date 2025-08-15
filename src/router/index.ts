@@ -2,8 +2,17 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 // 明确定义路由记录数组类型为 RouteRecordRaw[]
 const routes: RouteRecordRaw[] = [
-  {
+    {
     path: '/',
+    name: 'page',
+    component: () => import('@/pages/page2.vue'),
+    meta: {
+      keepAlive: true,
+      show: true
+    }
+  },
+  {
+    path: '/home',
     name: 'home',
     component: () => import('@/pages/home/index.vue'),
     meta: {

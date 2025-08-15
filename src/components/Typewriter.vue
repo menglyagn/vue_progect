@@ -124,10 +124,10 @@ defineExpose({
   padding: 20px;
   border-right: 2px solid transparent;
   white-space: pre-wrap;
-font-size: 20px;
+font-size: 24px;
 line-height: 30px;
   overflow: hidden;
-  color: #08141c;
+  color: #e40474;
   font-weight: bold;
 }
 
