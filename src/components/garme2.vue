@@ -74,7 +74,7 @@ const active = ref('start')
 const question = ref('可以成为我的恋人吗？')
 const btn1 = ref('跪下')
 const btn2 = ref('不跪')
-const confirm = (type) => {
+const confirm = (type:any) => {
    active.value = type
 }
 
