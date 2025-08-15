@@ -1,25 +1,41 @@
-import fetch from "node-fetch";
+const fetch = require('node-fetch');
 
-export const handler = async (event) => {
-  const url = decodeURIComponent(event.queryStringParameters.url);
-  
-  if (!url) {
-    return { statusCode: 400, body: "Missing URL parameter" };
-  }
-
+exports.handler = async (event, context) => {
   try {
-    const response = await fetch(url);
-    const data = await response.text();
-    
-    return {
-      statusCode: 200,
-      body: data,
+    const { url } = event.queryStringParameters;
+
+    if (!url) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'URL 参数是必需的' })
+      };
+    }
+
+    const response = await fetch(url, {
       headers: {
-        "Content-Type": response.headers.get("content-type"),
-        "Access-Control-Allow-Origin": "*",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Referer': 'https://myprojecttext.netlify.app/' // 替换为您的网站域名
       },
+      redirect: 'follow'
+    });
+
+    const contentType = response.headers.get('content-type') || 'text/plain';
+    const body = await response.text();
+
+    return {
+      statusCode: response.status,
+      headers: {
+        'Content-Type': contentType,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      },
+      body
     };
   } catch (error) {
-    return { statusCode: 500, body: "Proxy error: " + error.message };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message })
+    };
   }
 };

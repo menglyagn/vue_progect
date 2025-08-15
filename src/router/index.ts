@@ -29,12 +29,23 @@ const routes: RouteRecordRaw[] = [
       show: false
     }
   },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: (to) => {
+      // 如果是 Netlify 函数路径，直接返回该路径
+      if (to.path.startsWith('/.netlify/')) {
+        return to.path;
+      }
+      // 其他路径重定向到首页
+      return '/';
+    }
+  }
   // 确保没有额外的逗号或 undefined 值
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;
