@@ -1,6 +1,6 @@
 <template>
     <div class="page1">
-        <iframe src="http://7.att2.top/891/#1755157071564" frameborder="0" style="width: 100%; height: 100%; display: block;"></iframe>
+        <iframe src="http://7.att2.top/891/#1755157071564" frameborder="0" sandbox="allow-scripts allow-same-origin" style="width: 100%; height: 100%; display: block;"></iframe>
         <div class="zhezhao"></div>
         <div class="next" @click="handleClick">不想玩？进入正题</div>
     </div>
