@@ -9,4 +9,4 @@
 
 [functions]
   node_bundler = "esbuild"
-  runtime = "nodejs18.x"
+  external_node_modules = ["node-fetch"]
