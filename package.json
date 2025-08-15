@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.26.0",
+    "node-fetch": "^3.3.2",
     "three": "^0.179.1",
     "vant": "^3.4.5",
     "vue": "^3.2.25",
